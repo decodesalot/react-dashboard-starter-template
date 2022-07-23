@@ -1,6 +1,5 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React Dashboard Starter Template
+This is a free, open source, react bootstrap 5 starter template. Great for basic prototyping or getting a head start on setting up a portal - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 

@@ -1,0 +1,92 @@
+body {
+  background: $background;
+}
+
+a {
+  &.h-primary-outline {
+    &:hover {
+      & > .card {
+        border-color: $primary;
+      }
+    }
+  }
+}
+.card{
+  border-color: rgba($color: $dark, $alpha: .15);
+}
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.dropdown-usrn{
+    margin-top: 0.25rem;
+}
+.logo{
+  width:100%;
+  max-width: 240px;
+}
+#sidebar-toggle{
+  display: none; 
+}
+
+#sidebar {
+  background: $offwhite;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 20px 0 0;
+  svg {
+    max-width: 22px;
+    margin-right: 2px;
+    stroke: lighten($color: $dark, $amount: 40%);
+  }
+  ul {
+    li {
+      a {
+        color: #ffffff;
+        border-left: 3px solid transparent;
+        padding-top: 0.7rem;
+        padding-bottom: 0.7rem;
+        &.active {
+          border-left: 3px solid $secondary;
+        }
+      }
+    }
+  }
+}
+
+table {
+  tbody {
+    tr {
+      td {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.row-stats {
+  a {
+    color: initial;
+    text-decoration: none;
+    svg {
+      fill: $primary;
+    }
+  }
+}
+
+.search-group {
+  position: relative;
+  svg {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  input {
+    padding-left: 40px;
+  }
+}
