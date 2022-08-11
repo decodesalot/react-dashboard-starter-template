@@ -1,0 +1,68 @@
+.dark-mode{
+    background: darken($color: $dark, $amount: 3%);
+    h1,h2,h3,h4,h5,h6{
+        color: #ffffff;
+    }
+    p{
+        color: $offwhite;
+    }
+    .card{
+        background: $dark;
+        border-color: darken($color: $dark, $amount: 3%);
+    }
+    nav{
+        &.bg-white{
+            background: darken($color: $dark, $amount: 5%) !important;
+        }
+    }
+    .border{
+             border-color: darken($color: $dark, $amount: 6%) !important;
+    }
+    table{
+       thead,tbody{
+         color: #ffffff; 
+       }
+       tbody{
+         > tr:nth-of-type(odd) > *{
+          color: #ffffff; 
+            background: darken($color: $dark, $amount: 1%) !important;
+       }
+       }
+       tr{
+        td{
+            border-color: darken($color: $dark, $amount: 6%);
+        }
+       }
+    }
+    input{
+        &.form-control{
+            background: $dark;
+            border-color: $dark;
+            color: #ffffff;
+        }
+        &.form-check-input{
+            background-color: lighten($color: $dark, $amount: 2%);
+            border-color: lighten($color: $dark, $amount: 15%);
+            &:checked{
+                &[type="checkbox"]{
+                    background-color: $primary;
+                    border-color: lighten($color: $primary, $amount: 15%);
+                }
+            }
+        }
+    }
+    .search-group{
+        svg{
+                fill: $offwhite !important;
+            }
+    }
+    .pagination{
+        .page-link{
+            background: $dark;
+        border-color: darken($color: $dark, $amount: 6%);
+        }
+    }
+    .link-dark{
+        color: #ffffff !important;
+    }
+}
