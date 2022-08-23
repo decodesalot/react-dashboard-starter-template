@@ -22,6 +22,11 @@
        thead,tbody{
          color: #ffffff; 
        }
+       thead{
+        tr{
+            border-color: darken($color: $dark, $amount: 1%) !important;
+        }
+       }
        tbody{
          > tr:nth-of-type(odd) > *{
           color: #ffffff; 
