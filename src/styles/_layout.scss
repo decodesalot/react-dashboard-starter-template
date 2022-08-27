@@ -11,6 +11,14 @@ a {
     }
   }
 }
+button{
+  &.dropdown-action{
+    border: 1px solid rgba($color: $primary, $alpha: .50) !important;
+    &:after{
+      display: none;
+    }
+  }
+}
 .card{
   border-color: rgba($color: $dark, $alpha: .15);
 }
@@ -75,7 +83,9 @@ table {
     }
   }
 }
-
+.page-link{
+  cursor: pointer;
+}
 .row-stats {
   a {
     color: initial;

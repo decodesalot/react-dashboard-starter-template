@@ -22,6 +22,11 @@
        thead,tbody{
          color: #ffffff; 
        }
+       thead{
+        tr{
+            border-color: darken($color: $dark, $amount: 1%) !important;
+        }
+       }
        tbody{
          > tr:nth-of-type(odd) > *{
           color: #ffffff; 
@@ -64,5 +69,16 @@
     }
     .link-dark{
         color: #ffffff !important;
+    }
+    .dropdown-menu{
+        &.show{
+            background: darken($color: $dark, $amount: 5%) !important;
+            a{
+                color: #ffffff;
+                &:hover{
+                    background: darken($color: $dark, $amount: 2%) !important;
+                }
+            }
+        }
     }
 }
