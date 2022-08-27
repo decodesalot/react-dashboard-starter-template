@@ -3,7 +3,7 @@ import {
   Col,
   Row,
 } from "react-bootstrap";
-import DarkMode from "../components/DarkMode";
+
 const Settings = () => {
   return (
     <>

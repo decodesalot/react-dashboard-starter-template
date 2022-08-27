@@ -1,29 +1,64 @@
-import { useEffect, useState } from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
-import Table from '../components/Table';
-import Loader from '../components/Loader';
-import ErrorMessage from '../components/ErrorMessage';
+import { useEffect, useState } from "react";
+import { Card, Col, Row } from "react-bootstrap";
+import Table from "../components/Table";
+import Loader from "../components/Loader";
+import ErrorMessage from "../components/ErrorMessage";
+import Pagination from "../components/Pagination";
+
 const Dashboard = () => {
   const [dataTable, setDataTable] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState({show: false, data: null});
-useEffect(() => {
-  const url = `${process.env.REACT_APP_PLACEHOLDER_ENDPOINT}/users?_limit=5`;
-  const fetchData = async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(url);
-      const json = await response.json();
-      setDataTable(json);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      setError({ show: true, data: error });
-    }
+  const [error, setError] = useState({ show: false, data: null });
+
+  const pageNumberLimit = 20;
+  const [currentPage, setCurrentPage] = useState(0);
+  const [maxPageLimit, setMaxPageLimit] = useState(15);
+  const [minPageLimit, setMinPageLimit] = useState(0);
+    
+  useEffect(() => {
+    const url = `${process.env.REACT_APP_PLACEHOLDER_ENDPOINT}/users?offset=${currentPage}&limit=5`;
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(url);
+        const json = await response.json();
+        setDataTable(json);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        setError({ show: true, data: error });
+      }
+    };
+
+    fetchData();
+  }, [currentPage]);
+
+  const onPageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
 
-  fetchData();
-}, []);
+  const onPrevClick = () => {
+    if ((currentPage - 0) % pageNumberLimit === 0) {
+      setMaxPageLimit(maxPageLimit - pageNumberLimit);
+      setMinPageLimit(minPageLimit - pageNumberLimit);
+    }
+    setCurrentPage((prev) => prev - 1);
+  };
+
+  const onNextClick = () => {
+    if (currentPage + 1 > maxPageLimit) {
+      setMaxPageLimit(maxPageLimit + pageNumberLimit);
+      setMinPageLimit(minPageLimit + pageNumberLimit);
+    }
+    setCurrentPage((prev) => prev + 1);
+  };
+
+  const paginationAttributes = {
+    currentPage,
+    maxPageLimit,
+    minPageLimit,
+    response: dataTable,
+  };
 
   return (
     <>
@@ -181,35 +216,14 @@ useEffect(() => {
                 {!loading && error.show && <ErrorMessage error={error} />}
                 {dataTable.length !== 0 && <Table data={dataTable} />}
               </div>
-              <nav aria-label="Page navigation example">
-                <ul className="pagination mb-2">
-                  <li className="page-item">
-                    <a className="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      1
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      2
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      3
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              {dataTable.length !== 0 && (
+                <Pagination
+                  {...paginationAttributes}
+                  onPrevClick={onPrevClick}
+                  onNextClick={onNextClick}
+                  onPageChange={onPageChange}
+                />
+              )}
             </Card.Body>
           </Card>
         </Col>
