@@ -208,7 +208,7 @@ const Dashboard = () => {
           </Card>
         </Col>
         <Col md={8}>
-          <Card className="shaådow-sm">
+          <Card className="shadow-sm">
             <Card.Body>
               <h2 className="my-0 h3">Lorem Ipsum</h2>
               <div className="table-responsive mt-4 mb-2">
