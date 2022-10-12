@@ -1,9 +1,12 @@
 # React Dashboard Starter Template
-
-![React Dashboard Screenshot](./src/react-dashboard-starter-template.png)
-![React Dashboard Screenshot](./src/react-dashboard-starter-template-dark-theme.png) 
-
 This is a free, open source, react bootstrap 5 starter template. Great for basic prototyping or getting a head start on setting up a portal - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+| Theme | Screenshot |
+| :---  | :---- |
+| Light | ![React Dashboard Screenshot](./src/react-dashboard-starter-template.png) |
+| Dark | ![React Dashboard Screenshot](./src/react-dashboard-starter-template-dark-theme.png)  |
+
+
 
 ## Available Scripts
 
