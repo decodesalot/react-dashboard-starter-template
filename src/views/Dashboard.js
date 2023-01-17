@@ -16,7 +16,7 @@ const Dashboard = () => {
   const [minPageLimit, setMinPageLimit] = useState(0);
     
   useEffect(() => {
-    const url = `${process.env.REACT_APP_PLACEHOLDER_ENDPOINT}/users?offset=${currentPage}&limit=5`;
+    const url = `${process.env.REACT_APP_PLACEHOLDER_ENDPOINT}/users?offset=${currentPage}`;
     const fetchData = async () => {
       try {
         setLoading(true);
@@ -62,7 +62,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <h1 className="h2 my-5">Dashboard</h1>
+      <h1 className="h2 my-4">Dashboard</h1>
       <Row className="row-stats mb-4 mb-2-sm">
         <Col md={3}>
           <a href="#" className="h-primary-outline mb-2-sm">
